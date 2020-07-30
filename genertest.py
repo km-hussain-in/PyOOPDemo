@@ -40,8 +40,8 @@ class StackContext:
       self.wrapped = item
       print('Wrapping', item)
       
-    def check(self):
-      return self.wrapped
+    def __str__(self):
+      return str(self.wrapped)
       
     def __del__(self):
       print('Unwrapping', self.wrapped)
@@ -74,6 +74,6 @@ for item in store:
 print('----------------------')
   
 with StackContext('laptop', 'tablet', 'phone') as box:
-  box.peek(lambda i : print('Shipping', i.check()))
+  box.peek(lambda i : print('Shipping', i))
 
 

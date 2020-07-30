@@ -8,5 +8,5 @@
     <li><i><a href="decortest.py">Decorators</a></i></li>
   </ol>
 <p>
-  <i>&copy;2019 K.M Hussain. All rights reserved.</i>
+  <i>&copy;2020 K.M Hussain. All rights reserved.</i>
 </p>

@@ -20,6 +20,12 @@ class Stack:
   def empty(self):
     return self.top is None
     
+  def peek(self, action):
+    node = self.top
+    while node is not None:
+      action(node.value)
+      node = node.below
+    
   def __iter__(self):
     node = self.top
     while node is not None:
@@ -34,11 +40,17 @@ store.push('Wednesday')
 store.push('Thursday')
 store.push('Friday')
 
-print('Items in store')
+print('Traversing items in store')
+store.peek(lambda i : print(i))
+print('----------------------')
+
+print('Iterating items in store')
 for item in store:
   print(item)
+print('----------------------')
   
-print('One more time...')
+print('Popping items of store')
 while not store.empty():
   print(store.pop())
+
 

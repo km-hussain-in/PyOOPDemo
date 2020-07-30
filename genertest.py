@@ -19,38 +19,61 @@ class Stack:
     
   def empty(self):
     return self.top is None
-    
-  def peek(self, action):
-    node = self.top
-    while node is not None:
-      action(node.value)
-      node = node.below
-    
+ 
   def __iter__(self):
     node = self.top
     while node is not None:
       yield node.value
       node = node.below
+
+  def peek(self, action):
+    node = self.top
+    while node is not None:
+      action(node.value)
+      node = node.below
+     
+class StackContext:
+  
+  class Wrapper:
+    
+    def __init__(self, item):
+      self.wrapped = item
+      print('Wrapping', item)
+      
+    def check(self):
+      return self.wrapped
+      
+    def __del__(self):
+      print('Unwrapping', self.wrapped)
+      self.wrapped = None
+      
+  def __init__(self, *items):
+    self.items = items
+      
+  def __enter__(self):
+    self.resource = Stack()
+    for item in self.items:
+      self.resource.push(StackContext.Wrapper(item))
+    return self.resource
+    
+  def __exit__(self, et, ev, tb):
+    while not self.resource.empty():
+      self.resource.pop()
     
 
 store = Stack()
-store.push('Monday')
-store.push('Tuesday')
-store.push('Wednesday')
-store.push('Thursday')
-store.push('Friday')
+store.push('Desktop')
+store.push('Laptop')
+store.push('Printer')
+store.push('Tablet')
+store.push('Phone')
 
-print('Traversing items in store')
-store.peek(lambda i : print(i))
-print('----------------------')
-
-print('Iterating items in store')
+print('Items in store')
 for item in store:
   print(item)
 print('----------------------')
   
-print('Popping items of store')
-while not store.empty():
-  print(store.pop())
+with StackContext('laptop', 'tablet', 'phone') as box:
+  box.peek(lambda i : print('Shipping', i.check()))
 
 

@@ -3,7 +3,7 @@ class SealedMeta(type):
   def __new__(cls, name, bases, dct):
     if len(bases) > 0:
       raise TypeError(f'{name} cannot extend a sealed class: {bases[0].__name__}')
-    return super(SealedMeta, cls).__new__(cls, name, bases, dct)
+    return type.__new__(cls, name, bases, dct)
     
 class NonInheritableClass(metaclass=SealedMeta): pass
 

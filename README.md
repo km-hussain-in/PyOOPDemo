@@ -11,7 +11,8 @@
     </li>
     <li><i><a href="genertest.py">Generators</a></i></li>
     <li><i><a href="decortest.py">Decorators</a></i></li>
-    <li><i><a href="metaclasstest.py">Metaclasses</a></i></li>  
+    <li><i><a href="metaclasstest.py">Metaclasses</a></i></li>
+    <li><i><a href="corouttest.py">Coroutines</a></i></li>  
   </ol>
 <p>
   <i>&copy;2020 K.M Hussain. All rights reserved.</i>

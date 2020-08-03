@@ -19,19 +19,34 @@ class Stack:
     
   def empty(self):
     return self.top is None
- 
+    
   def __iter__(self):
+    """
+    class Iterator:
+      
+      def __init__(self, node):
+        self.__current = node
+        
+      def __next__(self):
+        if self.__current is None:
+          raise StopIteration
+        node = self.__current
+        self.__current = node.below
+        return node.value
+        
+    return Iterator(self.top)
+    """
     node = self.top
     while node is not None:
       yield node.value
       node = node.below
-
+      
   def peek(self, action):
     node = self.top
     while node is not None:
       action(node.value)
       node = node.below
-     
+       
 class StackContext:
   
   class Wrapper:

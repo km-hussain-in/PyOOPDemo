@@ -11,11 +11,7 @@ def average_income(group):
   return total / len(group)
   
 def total_sales(group):
-  total = 0
-  for member in group:
-    if isinstance(member, payroll.SalesPerson):
-      total += member.get_sales()
-  return total
+  return sum(e.get_sales() for e in group if isinstance(e, payroll.SalesPerson))
   
 
 jack = payroll.Employee()

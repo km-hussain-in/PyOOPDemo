@@ -32,7 +32,7 @@ class Countdown:
   
 async def start(): 
   #await calls are dispatched by event loop
-  print(await greet("Countdown"))
+  print(await greet("Rocket"))
   await Countdown(10)
   
 entry = start()

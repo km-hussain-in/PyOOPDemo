@@ -5,6 +5,7 @@
 
 	.text
 
+#thunk for position independent code
 Fib:
 	mov		rax, rdi
 	jmp		_Fib
@@ -29,4 +30,5 @@ _Fib:
 
 	.end
 
-
+# as -o fib.o fib-x64.s
+# ld -shared -o fib.so fib.o

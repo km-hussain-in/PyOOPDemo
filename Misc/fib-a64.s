@@ -24,3 +24,6 @@ Fib:
 
 	.end
 
+# as -o fib.o fib-a64.s
+# ld -shared -o fib.so fib.o
+

@@ -7,21 +7,20 @@
 
 Fib:
 	mov		rax, rdi
-	call	_Fib
-	ret
+	jmp		_Fib
 
 _Fib:
 	cmp		rax, 1
 	jbe		1f
 
-	push	rbx
+	push		rbx
 	mov		rbx, rax
 	sub		rbx, 2
 	dec		rax
-	call	_Fib
+	call		_Fib
 
-	xchg	rax, rbx
-	call	_Fib
+	xchg		rax, rbx
+	call		_Fib
 
 	add		rax, rbx
 	pop		rbx

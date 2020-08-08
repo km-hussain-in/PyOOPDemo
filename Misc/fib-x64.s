@@ -18,12 +18,12 @@ _Fib:
 	mov		rbx, rax
 	sub		rbx, 2
 	dec		rax
-	call		_Fib
+	call		_Fib        #_Fib(n-1)
 
 	xchg		rax, rbx
-	call		_Fib
+	call		_Fib        #_Fib(n-2)
 
-	add		rax, rbx
+	add		rax, rbx    #_Fib(n-1)+_Fib(n-2)
 	pop		rbx
 
 1:	ret

@@ -6,12 +6,12 @@ def once(target):
   return wrapper
 
 @once
-def greet():
+def greeter():
  print('Producing greet message')
  return 'Hello World'
 
-print(greet())
-print(greet())
+print(greeter())
+print(greeter())
 
 class Echo:
   

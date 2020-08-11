@@ -1,3 +1,18 @@
+def once(target):
+  def wrapper():
+    if not hasattr(target, 'once_result'):
+      target.once_result = target()
+    return target.once_result
+  return wrapper
+
+@once
+def greet():
+ print('Producing greet message')
+ return 'Hello World'
+
+print(greet())
+print(greet())
+
 class Echo:
   
   def __init__(self, target):

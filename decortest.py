@@ -32,6 +32,9 @@ def greet(name, formal=False):
     return f'Hello {name}.'
   return f'Hi {name}!'
 
+print(greet('Jack'))
+print(greet("Jack's Mom", True))
+#print(Echo.decorates(greet))
 
 class Interval:
   
@@ -50,11 +53,6 @@ class Interval:
   
   def __str__(self):
     return(f'{self.__min}:{self.__sec:02d}')
-    
-
-print(greet('Jack'))
-print(greet("Jack's Mom", True))
-#print(Echo.decorates(greet))
 
 i = Interval()
 i.time = 125

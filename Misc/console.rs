@@ -2,7 +2,7 @@
 #[allow(unused_macros)]
 macro_rules! input {
     ($type:ty, $prompt:expr) => {{
-        input::<$type>($prompt)
+        console::input::<$type>($prompt)
     }};
 }
 

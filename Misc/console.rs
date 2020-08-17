@@ -1,11 +1,10 @@
 #![macro_use]
 #[allow(unused_macros)]
 macro_rules! input {
-    ($prompt:expr, $type:ty) => {{
+    ($type:ty, $prompt:expr) => {{
         input::<$type>($prompt)
     }};
 }
-
 
 pub fn input<T>(prompt: &'static str) -> T 
 where T: std::str::FromStr,

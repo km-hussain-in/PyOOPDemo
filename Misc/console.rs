@@ -1,9 +1,9 @@
 #![macro_use]
 #[allow(unused_macros)]
 macro_rules! input {
-    ($type:ty, $prompt:expr) => {{
+    ($type:ty, $prompt:expr) => {
         console::input::<$type>($prompt)
-    }};
+    };
 }
 
 pub fn input<T>(prompt: &'static str) -> T 

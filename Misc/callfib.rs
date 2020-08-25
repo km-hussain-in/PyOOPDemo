@@ -12,7 +12,7 @@ fn main() {
 		println!("Result = {}", Fib(n));
 	}
 }
-//
-//ar rcs libfib.a fib.o 
+
+//ar r libfib.a fib.o 
 //rustc callfib.rs -L. -lfib
-//
+

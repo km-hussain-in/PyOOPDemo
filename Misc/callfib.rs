@@ -14,5 +14,5 @@ fn main() {
 }
 //
 //ar rcs libfib.a fib.o 
-//rustc callfib.rs -L . -lfib
+//rustc callfib.rs -L. -lfib
 //

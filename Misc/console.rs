@@ -1,19 +1,24 @@
 #![macro_use]
 #[allow(unused_macros)]
+
 macro_rules! input {
-    ($type:ty, $prompt:expr) => {
-        console::input::<$type>($prompt)
-    };
+    ($prompt:expr) => {{
+    	print!($prompt);
+    	console::read::<String>()
+    }};
+    ($prompt:expr, $type:ty) => {{
+        print!($prompt);
+        console::read::<$type>()
+    }};
 }
 
-pub fn input<T>(prompt: &'static str) -> T 
+pub fn read<T>() -> T 
 where T: std::str::FromStr,
 T::Err: std::fmt::Debug,
 {
-	use std::io::Write;
-	print!("{}", prompt);
+    use std::io::Write;
 	std::io::stdout().flush().expect("io error");
 	let mut line = String::new();
-	std::io::stdin().read_line(&mut line).expect("No input");
-	line.trim().parse::<T>().expect("Bad input")
+	std::io::stdin().read_line(&mut line).expect("io error");
+	line.trim().parse::<T>().expect("bad input")
 }
